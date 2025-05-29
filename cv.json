@@ -32,8 +32,8 @@
       "name": "El Rocket - Remoto",
       "position": "Freelance - Desarrollador Full Stack",
       "url": "https://www.linkedin.com/company/el-rocket/",
-      "startDate": "2024",
-      "endDate": "2026",
+      "startDate": "2023",
+      "endDate": "2025",
       "summary": "Como desarrollador freelance en El Rocket, diseñé e implementé soluciones web desde el frontend hasta el backend. Construí interfaces modernas con HTML, CSS, JavaScript, React y Tailwind, y desarrollé APIs REST escalables usando Node.js y Express.js. Gestioné control de versiones con Git y GitHub, y brindé asesoría tecnológica para optimizar procesos digitales. ",
       "highlights": [
         "Desarrollo completo de funcionalidades frontend y backend.",
@@ -45,8 +45,8 @@
       "name": "KingsData - Remoto",
       "position": "Freelance - Desarrollador Full Stack",
       "url": "mailto:kngsdata@gmail.com",
-      "startDate": "2024-10",
-      "endDate": "2025-04",
+      "startDate": "2023-10",
+      "endDate": "2024-04",
       "summary": "Lideré el desarrollo completo de una app móvil multiplataforma, desde diseño UI/UX y arquitectura, hasta frontend y backend. Integré Google Maps para rastreo en tiempo real, autenticación completa con Firebase (incluyendo OAuth2), notificaciones con WebSockets y funcionalidades clave como historial, publicaciones y perfiles. Documenté y probé el sistema, logrando un 90% de satisfacción del cliente. Aunque la aplicación no fue lanzada por decisiones internas, el desarrollo completo fortaleció mis capacidades de liderazgo técnico y entrega de soluciones reales.",
       "highlights": [
         "Started the company"
@@ -58,10 +58,9 @@
     "url": "https://jala.university/",
     "area": "Ingeniero de software",
     "studyType": "Pre grado",
-    "startDate": "2026-01",
-    "endDate": "2030-01",
+    "startDate": "2025-01",
+    "endDate": "2029-01",
     "courses": [
-      "DB1101 - Basic SQL"
     ]
   },
   {
