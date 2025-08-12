@@ -6,9 +6,9 @@
     "email": "zepta2249@gmail.com",
     "phone": "+57 3186356862",
     "url": "https://www.linkedin.com/in/miloz-dev/",
-    "summary": "Desarrollador Full Stack con 2 años de experiencia construyendo soluciones de software integrales. Domino tecnologías frontend (HTML, CSS, JavaScript, React, React Native) y backend (Node.js, Express.js, Firebase), con un enfoque especializado en ingeniería de datos, Etls, grandes volumenes de datos y automatizaciones usando Python, Pandas y tecnologías en la nube. He liderado proyectos desde la toma de requerimientos hasta su implementación. Apasionado por crear sistemas funcionales y eficientes que convierten datos en decisiones estratégicas.",
+    "summary": "Desarrollador Full Stack con 2 años de experiencia construyendo soluciones de software integrales. Domino tecnologías frontend como JavaScript, React y backend Nodejs, expresJS conocimiento en base de datos no relaciones como firebase, mongoDB y base de datos relacionales como MySql y Postgress con un enfoque especializado en ingeniería de datos, Etls, grandes volumenes de datos y automatizaciones usando Python con varias librerias, además de tecnologías como Docker, git, github, aws, gcp, y demás. He liderado proyectos desde la toma de requerimientos hasta su implementación. Apasionado por crear sistemas funcionales y eficientes que convierten datos en decisiones estratégicas.",
     "location": {
-      "address": "",
+      "address": "Villagorgona",
       "postalCode": "763577",
       "city": "Candelaria, Valle del Cauca",
       "countryCode": "CO",
@@ -34,7 +34,7 @@
       "url": "https://www.linkedin.com/company/el-rocket/",
       "startDate": "2023",
       "endDate": "2025",
-      "summary": "Como desarrollador freelance en El Rocket, diseñé e implementé soluciones web desde el frontend hasta el backend. Construí interfaces modernas con HTML, CSS, JavaScript, React y Tailwind, y desarrollé APIs REST escalables usando Node.js y Express.js. Gestioné control de versiones con Git y GitHub, y brindé asesoría tecnológica para optimizar procesos digitales. ",
+      "summary": "Como desarrollador en El Rocket, diseñé e implementé soluciones web desde el frontend hasta el backend. Construí interfaces modernas con HTML, CSS, JavaScript, React y Tailwind, y desarrollé APIs REST escalables usando Node.js y Express.js. Gestioné control de versiones con Git y GitHub, y brindé asesoría tecnológica para optimizar procesos digitales. ",
       "highlights": [
         "Desarrollo completo de funcionalidades frontend y backend.",
         "Implementación de APIs REST eficientes con Node.js.",
@@ -47,7 +47,7 @@
       "url": "mailto:kngsdata@gmail.com",
       "startDate": "2023-10",
       "endDate": "2024-04",
-      "summary": "Lideré el desarrollo completo de una app móvil multiplataforma, desde diseño UI/UX y arquitectura, hasta frontend y backend. Integré Google Maps para rastreo en tiempo real, autenticación completa con Firebase (incluyendo OAuth2), notificaciones con WebSockets y funcionalidades clave como historial, publicaciones y perfiles. Documenté y probé el sistema, logrando un 90% de satisfacción del cliente. Aunque la aplicación no fue lanzada por decisiones internas, el desarrollo completo fortaleció mis capacidades de liderazgo técnico y entrega de soluciones reales.",
+      "summary": "Lideré el desarrollo completo de una app móvil multiplataforma, desde diseño UI/UX y arquitectura, hasta frontend y backend. Integré Google Maps para rastreo en tiempo real, autenticación completa con Firebase (incluyendo OAuth2), notificaciones con WebSockets y funcionalidades clave como historial, publicaciones y perfiles. Documenté y probé el sistema, logrando un 90% de satisfacción del cliente. El desarrollo completo fortaleció mis capacidades de liderazgo técnico y entrega de soluciones reales.",
       "highlights": [
         "Started the company"
       ]
