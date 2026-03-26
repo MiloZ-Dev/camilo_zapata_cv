@@ -1,0 +1,62 @@
+---
+---
+<button id="lang-toggle" class="no-print" aria-label="Cambiar idioma">
+  <span id="lang-label">EN</span>
+</button>
+
+<script>
+  import { loadCV, applyCV } from '@/i18n'
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    const btn = document.getElementById('lang-toggle')
+    const label = document.getElementById('lang-label')
+
+    if (!btn || !label) return
+
+    const current = (localStorage.getItem('lang') ?? 'es') as 'es' | 'en'
+    label.textContent = current === 'es' ? 'EN' : 'ES'
+
+    if (current === 'en') {
+      const data = await loadCV('en')
+      applyCV(data)
+    }
+
+    btn.addEventListener('click', async () => {
+      const next = ((localStorage.getItem('lang') ?? 'es') === 'es' ? 'en' : 'es') as 'es' | 'en'
+      localStorage.setItem('lang', next)
+      label.textContent = next === 'es' ? 'EN' : 'ES'
+      const data = await loadCV(next)
+      applyCV(data)
+    })
+  })
+</script>
+
+<style>
+  button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+
+  button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  @media print {
+    button { display: none; }
+  }
+</style>

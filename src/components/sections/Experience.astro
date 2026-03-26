@@ -3,9 +3,9 @@ import Section from "../Section.astro"
 import { work } from "@cv"
 ---
 
-<Section title="Experiencia laboral">
+<Section title="Experiencia laboral" sectionKey="experience">
   <ul>
-    {work.map(({ name, startDate, endDate, position, summary, url }) => {
+    {work.map(({ name, startDate, endDate, position, summary, url }, idx) => {
       const startYear = new Date(startDate).getFullYear()
       const endYear = endDate != null ? new Date(endDate).getFullYear() : "Actual"
       const isCurrent = endDate == null
@@ -14,7 +14,7 @@ import { work } from "@cv"
         <li>
           <article>
             <div class="left">
-              <time>{startYear} — {endYear}</time>
+              <time>{startYear} — <span data-i18n={`work.${idx}.endYear`}>{endYear}</span></time>
               {isCurrent && <span class="badge-current">Actual</span>}
             </div>
             <div class="right">
@@ -24,8 +24,8 @@ import { work } from "@cv"
                   : name
                 }
               </h3>
-              <h4>{position}</h4>
-              <p>{summary}</p>
+              <h4 data-i18n={`work.${idx}.position`}>{position}</h4>
+              <p data-i18n={`work.${idx}.summary`}>{summary}</p>
             </div>
           </article>
         </li>

@@ -23,13 +23,13 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   <div class="container">
     <div class="info">
       <div class="name-block">
-        <h1>{name}</h1>
-        <h2>{label}</h2>
+        <h1 data-i18n="basics.name">{name}</h1>
+        <h2 data-i18n="basics.label">{label}</h2>
       </div>
 
       <span class="location">
         <WorldMap />
-        {city}, {region}
+        <span data-i18n="basics.city">{city}, {region}</span>
       </span>
 
       <footer class="print">{printInfo}</footer>

@@ -3,11 +3,10 @@ import GitHub from "@/icons/GitHub.astro"
 import Section from "../Section.astro"
 import { projects } from "@cv"
 ---
-
 <div class="projects-wrapper">
-  <Section title="Proyectos">
+  <Section title="Proyectos" sectionKey="projects">
     <ul>
-      {projects.map(({ description, highlights, name, isActive, github }) => (
+      {projects.map(({ description, highlights, name, isActive, github }, idx) => (
         <li>
           <article>
             <header>
@@ -20,7 +19,7 @@ import { projects } from "@cv"
                   </a>
                 )}
               </div>
-              <p>{description}</p>
+              <p data-i18n={`project.${idx}.description`}>{description}</p>
             </header>
             <footer>
               {highlights.map(h => <span>{h}</span>)}

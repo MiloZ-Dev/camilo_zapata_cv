@@ -1,0 +1,188 @@
+{
+  "basics": {
+    "name": "Camilo Zapata",
+    "label": "Full Stack Developer | Backend | Data Engineering",
+    "image": "/me.jpg",
+    "email": "zepta2249@gmail.com",
+    "phone": "+57 3186356862",
+    "url": "https://www.linkedin.com/in/miloz-dev/",
+    "summary": "Full Stack Developer with over 3 years building digital solutions end to end. From modern interfaces with React and Next.js to robust backends with Node.js and Python, including automations, process optimizations, ETL pipelines, relational and non-relational databases, and cloud server configuration.\n\nI have led complete projects with real clients — from requirements gathering to deployment — giving me a business perspective that goes beyond code. I adapt quickly, learn constantly, and integrate AI tools into my workflows to deliver smarter solutions. I'm looking for a team where I can contribute from day one and keep growing.",
+    "location": {
+      "address": "Villagorgona",
+      "postalCode": "763577",
+      "city": "Candelaria, Valle del Cauca",
+      "countryCode": "CO",
+      "region": "Colombia"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "Camilo Zapata",
+        "url": "https://www.linkedin.com/in/miloz-dev/"
+      },
+      {
+        "network": "GitHub",
+        "username": "miloZ-dev",
+        "url": "https://github.com/miloZ-dev"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "NiomSolutions",
+      "position": "Mid-Senior Full Stack Developer",
+      "url": "https://www.linkedin.com/company/niomsolutions/",
+      "startDate": "2025-09",
+      "endDate": null,
+      "summary": "Lead developer for the full stack development of a fuel delivery route optimization system for ADBTrasemisa, one of the largest transportation companies in Spain. On the backend, I was responsible for building and optimizing a routing algorithm with 97% efficiency, integrating OpenRouteService (ORS) deployed on Docker, OR-Tools for intelligent order geocoding, and complex logic for truck, factory, and refueling management. On the frontend, I developed a complete SAP with modules for routes, fleet management with real-time GPS (Wialon), factories, orders received via WebHooks, algorithm configuration with multiple metaheuristic strategies, and a full audit system. Additionally, I developed modern call-to-action and static websites from Figma designs for international clients.",
+      "highlights": [
+        "Led the development of a routing algorithm with 97% efficiency to optimize fuel deliveries at enterprise scale.",
+        "Designed and implemented MxM distance matrices using OR-Tools and OpenRouteService (ORS) deployed on Docker.",
+        "Developed dynamic factory refueling logic, full-truck blocking, and cost and disjunction management for the optimizer.",
+        "Integrated WebSockets for real-time order reception and PostgreSQL for route and fleet data management.",
+        "Built a complete SAP in Next.js with modules for routes, real-time GPS truck management via Wialon, factories, orders, and a full audit system.",
+        "Implemented algorithm configuration system with 5 selectable metaheuristic strategies.",
+        "Developed modern websites (call-to-action and static) from Figma designs for international clients.",
+        "Improved UX/UI of existing modules and integrated new features into an active production system."
+      ]
+    },
+    {
+      "name": "El Rocket",
+      "position": "Freelance — Full Stack Developer",
+      "url": "https://www.linkedin.com/company/el-rocket/",
+      "startDate": "2023-06",
+      "endDate": "2025-03",
+      "summary": "Freelance contributor at a digital development agency, working on varied projects for multiple clients. Built modern websites with Next.js, React, and Tailwind from Figma designs, developed REST APIs with Node.js and Express.js, and worked with data: built ETL pipelines, cleaned and transformed data with Python and Pandas, and provided technology consulting to digitize and optimize business processes.",
+      "highlights": [
+        "Developed modern websites with Next.js, React, and Tailwind from Figma designs for agency clients.",
+        "Built and maintained scalable REST APIs with Node.js and Express.js.",
+        "Implemented ETL pipelines and data cleaning and transformation processes with Python and Pandas.",
+        "Provided technology consulting to clients to digitize and optimize their internal processes."
+      ]
+    },
+    {
+      "name": "KingsData",
+      "position": "Freelance — Full Stack Developer",
+      "url": "",
+      "startDate": "2023-10",
+      "endDate": "2024-04",
+      "summary": "Built an Uber-like cross-platform mobile application from scratch, taking full ownership of the project. Designed flowcharts and system architecture, defined data connections, and developed the complete frontend and backend. Integrated Google Maps for real-time tracking, Firebase authentication (OAuth2), WebSocket notifications, and implemented key features such as history, posts, and user profiles. Documented and tested the system, achieving 90% client satisfaction.",
+      "highlights": [
+        "Built an Uber-like cross-platform mobile app from scratch.",
+        "Designed the complete system architecture, flowcharts, and data connections before writing a single line of code.",
+        "Independently developed the full frontend (React Native) and backend.",
+        "Integrated Google Maps for real-time tracking and OAuth2 authentication with Firebase.",
+        "Implemented real-time notifications with WebSockets.",
+        "Achieved 90% client satisfaction in testing and final delivery."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Platzi",
+      "url": "https://platzi.com/",
+      "area": "Full Stack Development",
+      "studyType": "Specialized Courses",
+      "startDate": "2022-02",
+      "endDate": "2024-02",
+      "courses": [
+        "Python from Zero to Expert",
+        "Frontend JavaScript",
+        "Backend JavaScript",
+        "Backend Python and FastAPI",
+        "Frontend React and React Native",
+        "SQL and NoSQL Databases"
+      ]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "JavaScript — Technical Assessment",
+      "date": "2024-06-26",
+      "issuer": "Talently",
+      "url": "https://talently.tech/certification/12def054-e06d-42e4-9701-dd57e6ac6f7c"
+    },
+    {
+      "name": "Python — Technical Assessment",
+      "date": "2024-06-26",
+      "issuer": "Talently",
+      "url": "https://talently.tech/certification/981b2c5f-f06b-42b2-8546-40e7893143fd"
+    },
+    {
+      "name": "Node.js — Technical Assessment",
+      "date": "2024-08-19",
+      "issuer": "Talently",
+      "url": "https://talently.tech/certification/497c1488-2905-4b0c-b020-a30f312c1085"
+    },
+    {
+      "name": "React — Technical Assessment",
+      "date": "2024-06-26",
+      "issuer": "Talently",
+      "url": "https://talently.tech/certification/5d7a0ce4-006c-4aa7-af27-53c33928a45d"
+    }
+  ],
+  "skills": [
+    { "name": "HTML",            "level": "Advanced",      "keywords": ["Web Development", "Frontend"] },
+    { "name": "CSS",             "level": "Advanced",      "keywords": ["Web Development", "Frontend", "Responsive Design"] },
+    { "name": "JavaScript",      "level": "Advanced",      "keywords": ["Web Development", "Frontend", "Backend", "Fullstack"] },
+    { "name": "TypeScript",      "level": "Advanced",      "keywords": ["Web Development", "Frontend", "Backend"] },
+    { "name": "Tailwind",        "level": "Advanced",      "keywords": ["Web Development", "Frontend", "CSS Framework"] },
+    { "name": "Next.js",         "level": "Advanced",      "keywords": ["Web Development", "Frontend", "SSR", "Fullstack"] },
+    { "name": "React",           "level": "Advanced",      "keywords": ["Web Development", "Frontend", "JavaScript Library", "UI"] },
+    { "name": "Python",          "level": "Advanced",      "keywords": ["Backend Development", "Data Engineering", "Automation"] },
+    { "name": "FastAPI",         "level": "Advanced",      "keywords": ["Backend Development", "Python", "APIs"] },
+    { "name": "Pandas",          "level": "Advanced",      "keywords": ["Data Engineering", "Data Analysis", "Python"] },
+    { "name": "MySQL",           "level": "Advanced",      "keywords": ["Databases", "SQL", "Backend"] },
+    { "name": "PostgreSQL",      "level": "Advanced",      "keywords": ["Databases", "SQL", "Backend"] },
+    { "name": "Git",             "level": "Advanced",      "keywords": ["Version Control", "Collaboration"] },
+    { "name": "GitHub",          "level": "Advanced",      "keywords": ["Version Control", "Collaboration"] },
+    { "name": "NumPy",           "level": "Intermediate",  "keywords": ["Data Engineering", "Numerical Computing", "Python"] },
+    { "name": "Node.js",         "level": "Intermediate",  "keywords": ["Web Development", "Backend", "JavaScript", "Server"] },
+    { "name": "Express.js",      "level": "Intermediate",  "keywords": ["Web Development", "Backend", "JavaScript Framework"] },
+    { "name": "MongoDB",         "level": "Intermediate",  "keywords": ["NoSQL Databases", "Backend"] },
+    { "name": "React Native",    "level": "Intermediate",  "keywords": ["Mobile Development", "Frontend", "JavaScript", "Cross-platform"] },
+    { "name": "Firebase",        "level": "Intermediate",  "keywords": ["Backend as a Service", "Authentication", "Real Time"] },
+    { "name": "Docker",          "level": "Intermediate",  "keywords": ["Containerization", "Deployment"] },
+    { "name": "Google Cloud",    "level": "Intermediate",  "keywords": ["Cloud Services", "Infrastructure"] },
+    { "name": "Figma",           "level": "Basic",         "keywords": ["UI/UX Design", "Prototyping"] },
+    { "name": "OR-Tools",        "level": "Intermediate",  "keywords": ["Optimization", "Algorithms", "Python"] },
+    { "name": "OpenRouteService","level": "Intermediate",  "keywords": ["Routing", "Geospatial", "Docker"] },
+    { "name": "Wialon",          "level": "Basic",         "keywords": ["GPS", "Fleet Management", "Real Time"] },
+    { "name": "WebSockets",      "level": "Intermediate",  "keywords": ["Real Time", "Backend", "Frontend"] },
+    { "name": "WebHooks",        "level": "Intermediate",  "keywords": ["Integrations", "Backend", "APIs"] }
+  ],
+  "languages": [
+    { "language": "Spanish", "fluency": "Native speaker" },
+    { "language": "English",  "fluency": "B1" }
+  ],
+  "projects": [
+    {
+      "name": "SkyNow",
+      "isActive": true,
+      "description": "ETL designed to collect and export meteorological data from multiple cities. Part of the CLIA data ecosystem.",
+      "highlights": ["Functional ETL pipeline with multi-city data collection", "Python, FastAPI, Pandas"],
+      "github": "https://github.com/MiloZ-Dev/Skynow"
+    },
+    {
+      "name": "Clean Data",
+      "isActive": true,
+      "description": "API for cleaning and transforming CSV files generated by SkyNow. An essential component of the CLIA data ecosystem.",
+      "highlights": ["Automatic transformation and cleaning of meteorological data", "Python, FastAPI, Pandas"],
+      "github": "https://github.com/MiloZ-Dev/Clean_data"
+    },
+    {
+      "name": "Mibi",
+      "isActive": true,
+      "description": "Automates the acquisition of commercial business data, cleans the information, and generates periodic reports for data-driven decision making.",
+      "highlights": ["Commercial report automation", "Python, FastAPI, Pandas"],
+      "github": "https://github.com/MiloZ-Dev/mibi"
+    },
+    {
+      "name": "Sales Microservice",
+      "isActive": true,
+      "description": "Microservice that interacts with a Datamart and provides an interface for specific sales-related queries and operations.",
+      "highlights": ["Microservice architecture with Datamart access", "Technical assessment — Python"],
+      "github": "https://github.com/MiloZ-Dev/Prueba_Tecnica_Python"
+    }
+  ]
+}

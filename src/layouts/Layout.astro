@@ -1,5 +1,6 @@
 ---
 import { basics } from "@cv"
+import LangToggle from "@/components/LangToggle.astro"
 
 interface Props {
   title: string
@@ -34,8 +35,14 @@ const { image, summary, url } = basics
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={summary} />
     <meta name="twitter:image" content="" />
+
+    <!-- Evita flash de idioma incorrecto al recargar -->
+    <script is:inline>
+      document.documentElement.lang = localStorage.getItem('lang') ?? 'es'
+    </script>
   </head>
   <body>
+    <LangToggle />
     <slot />
   </body>
 </html>
