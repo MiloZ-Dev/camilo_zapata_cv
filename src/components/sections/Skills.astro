@@ -24,7 +24,7 @@ const SKILLS_ICONS: Record<string, any> = {
 }
 ---
 
-<Section title="Habilidades">
+<Section title="Habilidades" sectionKey="skills">
   <ul>
     {skills.map(({ name, level }) => {
       const iconName = name === "Next.js" ? "Next" : name
@@ -32,7 +32,7 @@ const SKILLS_ICONS: Record<string, any> = {
       const isAdvanced = level === "Avanzado"
 
       return (
-        <li class={isAdvanced ? "advanced" : ""}>
+        <li class={isAdvanced ? "advanced" : ""} data-skill-level={level}>
           {Icon && <Icon />}
           <span>{name}</span>
         </li>
