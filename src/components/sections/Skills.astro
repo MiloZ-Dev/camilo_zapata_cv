@@ -11,64 +11,77 @@ import Git from "@/icons/git.astro"
 import GitHub from "@/icons/GitHub.astro"
 import Tailwind from "@/icons/tailwind.astro"
 import Next from "@/icons/next.astro"
-import { skills } from "@cv"
 import Swift from "@/icons/swift.astro"
 import SwiftUI from "@/icons/swiftui.astro"
 import Kotlin from "@/icons/kotlin.astro"
 import Flutter from "@/icons/flutter.astro"
+import { skills } from "@cv"
 
 const SKILLS_ICONS: Record<string, any> = {
-  HTML,
-  CSS,
-  JavaScript,
-  TypeScript,
-  React,
-  Node,
-  MySQL,
-  Git,
-  GitHub,
-  Next,
-  Tailwind,
-  Swift,
-  SwiftUI,
-  Kotlin,
-  Flutter,
+  HTML, CSS, JavaScript, TypeScript, React, Node,
+  MySQL, Git, GitHub, Next, Tailwind,
+  Swift, SwiftUI, Kotlin, Flutter,
 }
 ---
 
 <Section title="Habilidades">
   <ul>
-    {
-      skills.map(({ name }) => {
-        const iconName = name === "Next.js" ? "Next" : name
-        const Icon = SKILLS_ICONS[iconName]
+    {skills.map(({ name, level }) => {
+      const iconName = name === "Next.js" ? "Next" : name
+      const Icon = SKILLS_ICONS[iconName]
+      const isAdvanced = level === "Avanzado"
 
-        return (
-          <li>
-            {Icon && <Icon />} <span>{name}</span>
-          </li>
-        )
-      })
-    }
+      return (
+        <li class={isAdvanced ? "advanced" : ""}>
+          {Icon && <Icon />}
+          <span>{name}</span>
+        </li>
+      )
+    })}
   </ul>
 </Section>
 
 <style>
   ul {
-    display: inline-flex;
-    gap: 8px;
+    display: flex;
     flex-wrap: wrap;
+    gap: 6px;
   }
 
   li {
-    align-items: center;
-    background: #eee;
-    border-radius: 6px;
-    color: black;
     display: flex;
-    font-size: 0.8rem;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     font-weight: 500;
-    gap: 4px;
-    padding: 0.2rem 0.6rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    cursor: default;
+  }
+
+  li:hover {
+    border-color: var(--border-accent);
+    color: var(--text-primary);
+    background: var(--bg-hover);
+  }
+
+  li.advanced {
+    border-color: var(--border-accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+
+  li.advanced:hover {
+    background: rgba(99, 210, 210, 0.18);
+  }
+
+  @media print {
+    li { border: 1px solid #ddd; background: #f5f5f5; color: #333; }
+    li.advanced { border-color: #aad; color: #006; background: #eef; }
   }
 </style>

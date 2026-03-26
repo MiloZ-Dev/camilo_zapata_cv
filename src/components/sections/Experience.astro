@@ -1,55 +1,36 @@
 ---
 import Section from "../Section.astro"
-
 import { work } from "@cv"
 ---
 
 <Section title="Experiencia laboral">
   <ul>
-    {
-      work.map(
-        ({ name, startDate, endDate, position, summary, highlights, url }) => {
-          const startYear = new Date(startDate).getFullYear()
-          const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : "Actual"
+    {work.map(({ name, startDate, endDate, position, summary, url }) => {
+      const startYear = new Date(startDate).getFullYear()
+      const endYear = endDate != null ? new Date(endDate).getFullYear() : "Actual"
+      const isCurrent = endDate == null
 
-          return (
-            <li>
-              <article>
-                <header>
-                  <div>
-                    <h3>
-                      <a href={url} title={`Ver ${name}`} target="_blank">
-                        {name}
-                      </a>
-                    </h3>
-                    <h4>{position}</h4>
-                  </div>
-
-                  <div>
-                    <time 
-                      datetime={startDate}
-                      data-title={startDate}>
-                        {startYear}
-                    </time>
-                    {" - "}
-                    <time 
-                      datetime={endDate}
-                      data-title={endDate}>
-                        {endYear}
-                    </time>
-                  </div>
-                </header>
-
-                <footer>
-                  <p>{summary}</p>
-                </footer>
-              </article>
-            </li>
-          )
-        }
+      return (
+        <li>
+          <article>
+            <div class="left">
+              <time>{startYear} — {endYear}</time>
+              {isCurrent && <span class="badge-current">Actual</span>}
+            </div>
+            <div class="right">
+              <h3>
+                {url
+                  ? <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
+                  : name
+                }
+              </h3>
+              <h4>{position}</h4>
+              <p>{summary}</p>
+            </div>
+          </article>
+        </li>
       )
-    }
+    })}
   </ul>
 </Section>
 
@@ -57,73 +38,123 @@ import { work } from "@cv"
   ul {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-  }
-
-  article h3 {
-    font-weight: 500;
-    color: #111;
-  }
-
-  article a {
-    color: #111;
-  }
-
-  article a:hover {
-    text-decoration: underline;
-  }
-
-  article h4 {
-    color: #222;
-    font-weight: 400;
-  }
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 4px;
-  }
-
-  time {
-    color: #555;
-    font-size: 0.85rem;
-    min-width: 102px;
-    cursor: default;
-  }
-
-  [data-title]:hover:after {
-    opacity: 1;
-    transition: all 0.1s ease-in-out 0.5s;
-    visibility: visible;
-  }
-
-  [data-title]:after {
-    content: attr(data-title);
-    background-color: #333;
-    color: #fff;
-    font-size: .75rem;
-    font-family: Menlo, Monaco, Lucida Console, "Courier New", monospace;;
-    position: absolute;
-    padding: .2rem .5rem;
-    bottom: -1.4rem;
-    left: 50%;
-    white-space: nowrap;
-    box-shadow: 1px 1px 1px #222222;
-    opacity: 0;
-    border: 1px solid #111111;
-    z-index: 99999;
-    visibility: hidden;
-    border-radius: 6px;
-  }
-
-  [data-title] {
+    gap: 0;
     position: relative;
   }
 
+  ul::before {
+    content: '';
+    position: absolute;
+    left: 110px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--border);
+  }
+
+  li { position: relative; }
+
+  article {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 2.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  li:last-child article { border-bottom: none; }
+
+  article:hover .right {
+    opacity: 1;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    padding-top: 2px;
+  }
+
+  time {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-align: right;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .badge-current {
+    font-size: 0.6rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 99px;
+    border: 1px solid var(--border-accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+    white-space: nowrap;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: opacity 0.2s;
+  }
+
+  h3 {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  h3 a {
+    color: var(--text-primary);
+    transition: color 0.2s;
+  }
+
+  h3 a:hover {
+    color: var(--accent);
+  }
+
+  h4 {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    line-height: 1.65;
+  }
+
   @media (width <= 700px) {
-    time {
-      text-align: right;
+    ul::before { display: none; }
+
+    article {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
     }
+
+    .left {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+    }
+
+    time { text-align: left; }
+  }
+
+  @media print {
+    ul::before { display: none; }
+    article { grid-template-columns: 80px 1fr; gap: 1rem; padding: 0.75rem 0; }
+    h3 a { color: var(--text-primary) !important; }
   }
 </style>

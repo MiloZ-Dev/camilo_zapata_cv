@@ -12,73 +12,50 @@ import type { SocialIcon } from "@/types"
 const { name, label, image, location, profiles, phone, email } = basics
 const { city, region } = location
 
-const SOCIAL_ICONS: SocialIcon = {
-  GitHub,
-  LinkedIn,
-  X,
-}
+const SOCIAL_ICONS: SocialIcon = { GitHub, LinkedIn, X }
 
 const linkedInfo = profiles.find(({ network }) => network === "LinkedIn")
 const linkedUrl = linkedInfo?.url
-
 const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
 ---
 
 <Section>
   <div class="container">
     <div class="info">
-      <h1>{name}</h1>
-      <h2>{label}</h2>
-      <span>
+      <div class="name-block">
+        <h1>{name}</h1>
+        <h2>{label}</h2>
+      </div>
+
+      <span class="location">
         <WorldMap />
         {city}, {region}
       </span>
-      <footer class="print">
-        {printInfo}
-      </footer>
-      <footer class="no-print">
-        {
-          email && (
-            <a
-              href={`mailto:${email}`}
-              title={`Enviar un correo electrónico a ${name} al correo ${email}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Mail />
-            </a>
-          )
-        }
-        {
-          phone && (
-            <a
-              href={`tel:${phone}`}
-              title={`Llamar por teléfono a ${name} al número ${phone}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Phone />
-            </a>
-          )
-        }
-        {
-          profiles.map(({ network, url, username }) => {
-            const Icon = SOCIAL_ICONS[network]
 
-            return (
-              <a
-                href={url}
-                title={`Visitar el perfil de ${name} en ${network}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon />
-              </a>
-            )
-          })
-        }
+      <footer class="print">{printInfo}</footer>
+
+      <footer class="no-print">
+        {email && (
+          <a href={`mailto:${email}`} title={`Email ${name}`} target="_blank" rel="noopener noreferrer">
+            <Mail />
+          </a>
+        )}
+        {phone && (
+          <a href={`tel:${phone}`} title={`Llamar a ${name}`} target="_blank" rel="noopener noreferrer">
+            <Phone />
+          </a>
+        )}
+        {profiles.map(({ network, url }) => {
+          const Icon = SOCIAL_ICONS[network]
+          return (
+            <a href={url} title={`${name} en ${network}`} target="_blank" rel="noopener noreferrer">
+              <Icon />
+            </a>
+          )
+        })}
       </footer>
     </div>
+
     <figure>
       <img src={image} alt={name} />
     </figure>
@@ -91,93 +68,111 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .info {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding-right: 32px;
+    gap: 0.75rem;
+  }
+
+  .name-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
   }
 
   h1 {
-    font-size: 2rem;
+    font-family: var(--font-sans);
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: var(--text-primary);
+    line-height: 1;
   }
 
   h2 {
-    color: #444;
-    font-weight: 500;
-    font-size: 1.1rem;
-    text-wrap: balance;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  figure {
+    flex-shrink: 0;
   }
 
   img {
-    aspect-ratio: 1 / 1;
+    width: 108px;
+    height: 108px;
     object-fit: cover;
-    width: 128px;
-    border-radius: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
   }
 
-  span {
-    color: #666;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.85rem;
-    letter-spacing: -0.05rem;
+  img:hover {
+    filter: grayscale(0%);
   }
 
   footer {
-    color: #555;
-    font-size: 0.65rem;
     display: flex;
-    gap: 4px;
-    margin-top: 8px;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  footer.print {
+    font-size: 0.7rem;
+    color: var(--text-muted);
   }
 
   footer a {
-    color: #777;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #eee;
-    padding: 4px;
-    height: 32px;
     width: 32px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    background: var(--bg-card);
+    transition: all 0.2s ease;
   }
 
   footer a:hover {
-    background: #eee;
-    border: 1px solid #ddd;
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
   }
 
   @media (width <= 700px) {
     .container {
       flex-direction: column-reverse;
-    }
-
-    .info {
-      justify-content: center;
-      align-items: center;
-      padding-right: 0;
-      text-align: center;
+      align-items: flex-start;
+      gap: 1.25rem;
     }
 
     figure {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      align-self: center;
     }
 
-    h2 {
-      text-wrap: balance;
-    }
+    img { width: 88px; height: 88px; }
+  }
 
-    figure {
-      margin: 0 auto;
-    }
+  @media print {
+    img { filter: none; }
+    h1 { font-size: 1.8rem; }
   }
 </style>

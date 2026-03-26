@@ -1,37 +1,28 @@
 ---
 import Section from "../Section.astro"
-
 import { education } from "@cv"
 ---
 
 <Section title="Educación">
   <ul>
-    {
-      education.map(({ institution, startDate, endDate, area }) => {
-        const startYear = new Date(startDate).getFullYear()
-        const endYear =
-          endDate != null ? new Date(endDate).getFullYear() : "Actual"
-        const years = `${startYear} - ${endYear}`
+    {education.map(({ institution, startDate, endDate, area }) => {
+      const startYear = new Date(startDate).getFullYear()
+      const endYear = endDate != null ? new Date(endDate).getFullYear() : "Actual"
 
-        return (
-          <li>
-            <article>
-              <header>
-                <div>
-                  <h3>{institution}</h3>
-                </div>
-
-                <time>{years}</time>
-              </header>
-
-              <footer>
-                <p>{area}</p>
-              </footer>
-            </article>
-          </li>
-        )
-      })
-    }
+      return (
+        <li>
+          <article>
+            <div class="left">
+              <time>{startYear} — {endYear}</time>
+            </div>
+            <div class="right">
+              <h3>{institution}</h3>
+              <p>{area}</p>
+            </div>
+          </article>
+        </li>
+      )
+    })}
   </ul>
 </Section>
 
@@ -39,30 +30,58 @@ import { education } from "@cv"
   ul {
     display: flex;
     flex-direction: column;
-    gap: 32px;
   }
 
-  article h3 {
-    font-weight: 500;
-    color: #111;
+  article {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
   }
 
-  header {
+  li:last-child article { border-bottom: none; }
+
+  .left {
     display: flex;
-    justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 4px;
+    justify-content: flex-end;
+    padding-top: 2px;
   }
 
   time {
-    color: #555;
-    font-size: 0.85rem;
-    min-width: 102px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  h3 {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
   }
 
   @media (width <= 700px) {
-    time {
-      text-align: right;
-    }
+    article { grid-template-columns: 1fr; gap: 0.25rem; }
+    .left { justify-content: flex-start; }
+    time { text-align: left; }
+  }
+
+  @media print {
+    article { grid-template-columns: 80px 1fr; gap: 1rem; padding: 0.6rem 0; }
   }
 </style>

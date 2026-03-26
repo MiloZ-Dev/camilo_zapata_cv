@@ -6,7 +6,6 @@ interface Props {
 }
 
 const { title } = Astro.props
-
 const { image, summary, url } = basics
 ---
 
@@ -19,6 +18,9 @@ const { image, summary, url } = basics
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href={image} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
 
     <meta property="og:url" content={url} />
     <meta property="og:type" content="website" />
@@ -39,86 +41,85 @@ const { image, summary, url } = basics
 </html>
 
 <style is:global>
+  :root {
+    --bg:        #0c0c10;
+    --bg-card:   #13131a;
+    --bg-hover:  #1a1a24;
+    --border:    rgba(255,255,255,0.07);
+    --border-accent: rgba(99,210,210,0.25);
+    --text-primary:   #e8e8f0;
+    --text-secondary: #8888aa;
+    --text-muted:     #55556a;
+    --accent:    #63d2d2;
+    --accent-dim: rgba(99,210,210,0.12);
+    --accent2:   #8b78f5;
+    --radius:    10px;
+    --font-mono: 'DM Mono', Menlo, Monaco, monospace;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
   html {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      "Courier New",
-      Courier,
-      monospace;
-    background: #fff;
-    letter-spacing: -0.025rem;
+    font-family: var(--font-mono);
+    background: var(--bg);
+    color: var(--text-primary);
+    letter-spacing: -0.015rem;
+    scroll-behavior: smooth;
   }
 
-  body,
-  figure {
+  body, figure { margin: 0; padding: 0; }
+
+  a { text-decoration: none; color: inherit; }
+
+  ul { list-style: none; margin: 0; padding: 0; }
+
+  h1, h2, h3, h4 {
     margin: 0;
-    padding: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin: 0;
-    font-family:
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
-      "Open Sans",
-      "Helvetica Neue",
-      sans-serif;
+    font-family: var(--font-sans);
+    color: var(--text-primary);
   }
 
   p {
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.7;
     margin: 0;
     text-wrap: pretty;
   }
 
-  .print {
-    display: none !important;
-  }
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+  .print { display: none !important; }
 
   @media print {
-    .no-print {
-      display: none !important;
+    :root {
+      --bg: #ffffff;
+      --bg-card: #f8f8f8;
+      --bg-hover: #f0f0f0;
+      --border: rgba(0,0,0,0.1);
+      --border-accent: rgba(0,100,180,0.2);
+      --text-primary: #111111;
+      --text-secondary: #444444;
+      --text-muted: #888888;
+      --accent: #0066bb;
+      --accent-dim: rgba(0,102,187,0.08);
+      --accent2: #5533cc;
     }
 
-    .print {
-      display: block !important;
-    }
+    html { background: #fff; }
 
-    astro-dev-toolbar {
-      display: none !important;
-    }
+    .no-print { display: none !important; }
+    .print { display: block !important; }
 
-    article {
-      break-inside: avoid;
-    }
+    astro-dev-toolbar { display: none !important; }
+
+    article { break-inside: avoid; }
+
+    body { color: #111; }
   }
 </style>

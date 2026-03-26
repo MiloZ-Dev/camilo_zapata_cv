@@ -1,142 +1,128 @@
 ---
-import GitHub from "@/icons/GitHub.astro";
-import Section from "../Section.astro";
-
-import { projects } from "@cv";
+import GitHub from "@/icons/GitHub.astro"
+import Section from "../Section.astro"
+import { projects } from "@cv"
 ---
 
 <Section title="Proyectos">
   <ul>
-    {
-      projects.map(({ description, highlights, name, isActive, github }) => {
-        return (
-          <li>
-            <article>
-              <header>
-                <h3>
-                  <a>{name}</a>
-                  {isActive && <span>•</span>}
-                  {github && (
-                    <a
-                      class="github-code-link"
-                      href={github}
-                      target="_blank"
-                      title={`Ver código fuente del proyecto ${name}`}
-                    >
-                      <GitHub />
-                    </a>
-                  )}
-                </h3>
-                <p>{description}</p>
-              </header>
-              <footer>
-                {highlights.map((highlight) => {
-                  return <span>{highlight}</span>;
-                })}
-              </footer>
-            </article>
-          </li>
-        );
-      })
-    }
+    {projects.map(({ description, highlights, name, isActive, github }) => (
+      <li>
+        <article>
+          <header>
+            <div class="title-row">
+              <h3>{name}</h3>
+              {isActive && <span class="dot" title="Activo" />}
+              {github && (
+                <a class="gh-link" href={github} target="_blank" title={`Código de ${name}`}>
+                  <GitHub />
+                </a>
+              )}
+            </div>
+            <p>{description}</p>
+          </header>
+          <footer>
+            {highlights.map(h => <span>{h}</span>)}
+          </footer>
+        </article>
+      </li>
+    ))}
   </ul>
 </Section>
 
 <style>
   ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-inline: -16px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.75rem;
   }
 
   article {
-    border-radius: 8px;
-    border: 1px solid #f2f2f2;
-    gap: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
     display: flex;
     flex-direction: column;
-    padding: 16px;
+    gap: 0.75rem;
     height: 100%;
+    transition: border-color 0.2s, background 0.2s;
   }
 
-  article header {
-    flex: 1;
+  article:hover {
+    border-color: var(--border-accent);
+    background: var(--bg-hover);
   }
 
-  article h3 {
-    margin-bottom: 4px;
+  header { flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 
-  article a {
-    color: #111;
+  h3 {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
   }
 
-  article a:hover {
-    text-decoration: underline;
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    animation: pulse 2.5s ease-in-out infinite;
   }
 
-  article p {
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .gh-link {
+    margin-left: auto;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+  }
+
+  .gh-link:hover { color: var(--accent); }
+
+  p {
     font-size: 0.75rem;
-    line-height: 1.2rem;
-    margin-bottom: 4px;
-  }
-
-  article h3 span {
-    color: rgb(0, 188, 47);
-    animation-name: flicker;
-    animation-duration: 3s;
-    animation-timing-function: ease-in;
-    animation-iteration-count: infinite;
+    line-height: 1.5;
+    color: var(--text-secondary);
   }
 
   footer {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    font-size: 0.6rem;
   }
 
   footer span {
-    border-radius: 6px;
-    background: #eee;
-    color: #444;
     font-size: 0.6rem;
+    font-family: var(--font-mono);
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid var(--border-accent);
     font-weight: 500;
-    padding: 0.2rem 0.6rem;
-  }
-
-  .github-code-link {
-    margin-left: 5px;
-  }
-
-  @keyframes flicker {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.25;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 
   @media (width <= 700px) {
-    ul {
-      margin-inline: 0px;
-    }
-
-    article {
-      border: none;
-      box-shadow: 0 1px 1px #f2f2f2;
-      padding: 0 0 16px 0;
-    }
+    ul { grid-template-columns: 1fr; }
   }
 
   @media print {
-    article h3 span {
-      animation-name: none;
-    }
+    article { border: 1px solid var(--border); break-inside: avoid; }
+    .dot { animation: none; }
+    footer span { background: #f0f0f0; color: #333; border-color: #ccc; }
   }
 </style>
