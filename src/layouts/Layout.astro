@@ -48,8 +48,8 @@ const { image, summary, url } = basics
     --border:    rgba(255,255,255,0.07);
     --border-accent: rgba(99,210,210,0.25);
     --text-primary:   #e8e8f0;
-    --text-secondary: #8888aa;
-    --text-muted:     #55556a;
+    --text-secondary: #d1d1d1;
+    --text-muted:     #b1b1b4;
     --accent:    #63d2d2;
     --accent-dim: rgba(99,210,210,0.12);
     --accent2:   #8b78f5;
@@ -97,29 +97,16 @@ const { image, summary, url } = basics
   .print { display: none !important; }
 
   @media print {
-    :root {
-      --bg: #ffffff;
-      --bg-card: #f8f8f8;
-      --bg-hover: #f0f0f0;
-      --border: rgba(0,0,0,0.1);
-      --border-accent: rgba(0,100,180,0.2);
-      --text-primary: #111111;
-      --text-secondary: #444444;
-      --text-muted: #888888;
-      --accent: #0066bb;
-      --accent-dim: rgba(0,102,187,0.08);
-      --accent2: #5533cc;
-    }
-
-    html { background: #fff; }
-
-    .no-print { display: none !important; }
-    .print { display: block !important; }
-
-    astro-dev-toolbar { display: none !important; }
-
-    article { break-inside: avoid; }
-
-    body { color: #111; }
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
+
+  .no-print { display: none !important; }
+  .print { display: block !important; }
+
+  astro-dev-toolbar { display: none !important; }
+
+  article { break-inside: avoid; }
+}
 </style>

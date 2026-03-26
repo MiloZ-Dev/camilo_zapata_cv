@@ -4,31 +4,33 @@ import Section from "../Section.astro"
 import { projects } from "@cv"
 ---
 
-<Section title="Proyectos">
-  <ul>
-    {projects.map(({ description, highlights, name, isActive, github }) => (
-      <li>
-        <article>
-          <header>
-            <div class="title-row">
-              <h3>{name}</h3>
-              {isActive && <span class="dot" title="Activo" />}
-              {github && (
-                <a class="gh-link" href={github} target="_blank" title={`Código de ${name}`}>
-                  <GitHub />
-                </a>
-              )}
-            </div>
-            <p>{description}</p>
-          </header>
-          <footer>
-            {highlights.map(h => <span>{h}</span>)}
-          </footer>
-        </article>
-      </li>
-    ))}
-  </ul>
-</Section>
+<div class="projects-wrapper">
+  <Section title="Proyectos">
+    <ul>
+      {projects.map(({ description, highlights, name, isActive, github }) => (
+        <li>
+          <article>
+            <header>
+              <div class="title-row">
+                <h3>{name}</h3>
+                {isActive && <span class="dot" title="Activo" />}
+                {github && (
+                  <a class="gh-link" href={github} target="_blank" title={`Código de ${name}`}>
+                    <GitHub />
+                  </a>
+                )}
+              </div>
+              <p>{description}</p>
+            </header>
+            <footer>
+              {highlights.map(h => <span>{h}</span>)}
+            </footer>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </Section>
+</div>
 
 <style>
   ul {
@@ -121,8 +123,6 @@ import { projects } from "@cv"
   }
 
   @media print {
-    article { border: 1px solid var(--border); break-inside: avoid; }
-    .dot { animation: none; }
-    footer span { background: #f0f0f0; color: #333; border-color: #ccc; }
+    .projects-wrapper { display: none !important; }
   }
 </style>
